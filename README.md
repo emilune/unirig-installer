@@ -1,4 +1,6 @@
-# UniRig Installer V5
+# UniRig Installer V1
+
+![Demo](demo.png)
 
 ## 📌 Description
 UniRig Installer V5 is a graphical application designed to manage a UniRig / ComfyUI environment.
