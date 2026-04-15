@@ -4,6 +4,8 @@
 
 Automatically install UniRig in ComfyUI — rig your 3D characters in seconds.
 
+![Demo](UniRig_installer.png)
+
 ## 📌 Description
 UniRig Installer V1 is a graphical application designed to manage a UniRig / ComfyUI environment.
 
