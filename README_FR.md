@@ -4,31 +4,20 @@ Installe automatiquement UniRig dans ComfyUI — riggez vos personnages 3D en qu
 
 ---
 
-## ⚠️ Important
+## 🌍 Langues
 
-Après avoir installé UniRig, **NE redémarrez PAS ComfyUI**.
-
-Vous devez **FERMER complètement ComfyUI** avant de lancer UniRig Installer.
-
-❌ Ne pas redémarrer ComfyUI
-✅ Fermer complètement ComfyUI
-
-Un redémarrage peut créer un environnement incorrect.
+[English](README.md) | Français | [中文](README_CN.md)
 
 ---
 
-## ⚠️ Si UniRig a déjà été installé
+## ⚠️ Important
 
-Un ancien environnement peut exister et poser des problèmes.
+Après installation de UniRig, **NE redémarrez PAS ComfyUI**.
 
-La méthode la plus simple et la plus sûre est :
+Vous devez **FERMER complètement ComfyUI** avant de lancer UniRig Installer.
 
-1. Ouvrir ComfyUI
-2. Ouvrir **ComfyUI-Env-Manager** en cliquant sur le bouton **ENV** en haut de l’interface
-3. Supprimer les environnements UniRig existants
-4. Fermer complètement ComfyUI
-
-Puis lancer UniRig Installer.
+❌ Ne pas redémarrer  
+✅ Fermer complètement  
 
 ---
 
@@ -36,27 +25,37 @@ Puis lancer UniRig Installer.
 
 ### Étape 1 — Installer UniRig dans ComfyUI
 
-* Ouvrez ComfyUI
-* Installez **UniRig** via le Manager
+- Ouvrez ComfyUI  
+- Installez **UniRig** via le Manager  
 
 👉 Puis **fermez complètement ComfyUI**
 
 ---
 
+## ⚠️ Si UniRig a déjà été installé
+
+Un ancien environnement peut exister et poser problème.
+
+Procédure recommandée :
+
+1. Ouvrir ComfyUI  
+2. Cliquer sur **ENV**  
+3. Supprimer les environnements UniRig  
+4. Fermer complètement ComfyUI  
+
+---
+
 ### Étape 2 — Lancer UniRig Installer
 
-Lancez l’application et cliquez dans cet ordre :
-
-1. Detect
-2. Update comfy-env
-3. Generate Script
-4. Export Script
+1. Detect  
+2. Update comfy-env  
+3. Install UniRig env  
+4. Generate Script  
+5. Export Script  
 
 ---
 
 ### Étape 3 — Exécuter le script
-
-Dans PowerShell :
 
 ```powershell
 .\SCRIPT_UNIRIG.ps1
@@ -66,43 +65,40 @@ Dans PowerShell :
 
 ### Étape 4 — Relancer ComfyUI
 
-* Lancez ComfyUI
-* Chargez votre workflow UniRig
-* Exécutez
+- Lancer ComfyUI  
+- Charger le workflow  
+- Exécuter  
 
 ---
 
 ## 💡 Notes
 
-* L’application prépare automatiquement l’environnement
-* Certains GPU récents peuvent avoir des comportements spécifiques
-* Suivez les instructions affichées si nécessaire
+- L’environnement est configuré automatiquement  
+- Certains GPU récents peuvent varier  
 
 ---
 
 ## ❤️ Contribution
 
-Suggestions et retours sont les bienvenus !
+Suggestions bienvenues
 
 ---
 
 ## 🚀 Téléchargement
 
-Téléchargez la dernière version depuis la section **Releases** du dépôt GitHub.
+Voir section Releases
 
 ---
 
 ## 👤 Auteur
 
-Projet initié et développé par **emilune**  
-GitHub : https://github.com/emilune  
-
-Avec l’aide de ChatGPT pour la résolution technique et l’automatisation.
+emilune  
+https://github.com/emilune  
 
 ---
 
 ## 🙏 Remerciements
 
-- Communauté ComfyUI  
-- Développeurs UniRig  
-- Écosystème open-source  
+- ComfyUI  
+- UniRig  
+- Open-source  
