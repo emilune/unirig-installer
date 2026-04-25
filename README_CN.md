@@ -13,10 +13,6 @@
 
 无需手动配置，无需调试。
 
-👉 只需：
-
-**安装 UNIRIG → ONE-CLICK INSTALL → 打开 COMFYUI → 运行工作流**
-
 ---
 
 ## 🧠 功能说明
