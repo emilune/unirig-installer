@@ -13,10 +13,6 @@ Installe, configure et active **UNIRIG dans ComfyUI en un clic.**
 
 Aucune configuration manuelle. Aucun réglage. Aucun dépannage.
 
-👉 Il suffit de :
-
-**INSTALLER UNIRIG → ONE-CLICK INSTALL → OUVRIR COMFYUI → LANCER UN WORKFLOW**
-
 ---
 
 ## 🧠 Ce que fait l’application
