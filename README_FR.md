@@ -33,19 +33,28 @@ Cet outil :
 
 ---
 
-## 🚀 Utilisation - (Microsoft Edge, Firefox ou Opera recommendée)
+## 🚀 Utilisation  
+*(Microsoft Edge, Firefox ou Opera recommandé)*
 
-### 1. Installer UniRig
-Cliquez sur **"Installer UniRig"**
+### 1. Sélectionner le dossier ComfyUI
+Cliquez sur **"Parcourir"** à côté du champ ComfyUI et sélectionnez votre dossier ComfyUI.
 
-### 2. Lancer ONE-CLICK INSTALL
-Cliquez sur **"ONE-CLICK INSTALL"**
+### 2. Lancer l’Analyse
+Cliquez sur **"Analyser"**.
 
-### 3. Ouvrir ComfyUI
-Lancez ComfyUI
+L’application détectera automatiquement le chemin Python et l’état d’UniRig lorsque c’est possible.
 
-### 4. Lancer un workflow
-Chargez un workflow UniRig et exécutez-le
+### 3. Installer UniRig
+Cliquez sur **"Installer UniRig"**.
+
+### 4. Lancer ONE-CLICK INSTALL
+Cliquez sur **"ONE-CLICK INSTALL"**.
+
+### 5. Ouvrir ComfyUI
+Lancez ComfyUI en mode administrateur.
+
+### 6. Lancer un workflow
+Chargez un workflow UniRig et exécutez-le.
 
 👉 Terminé.
 
