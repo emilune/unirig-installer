@@ -59,17 +59,25 @@ This tool automatically:
 ## 🚀 Usage  
 *(Recommended: Microsoft Edge, Firefox, or Opera)*
 
-### 1. Install UniRig
-Click **"Install UniRig"**
+### 1. Select your ComfyUI folder
+Click **"Browse"** next to the ComfyUI path field and select your ComfyUI folder.
 
-### 2. Run ONE-CLICK INSTALL
-Click **"ONE-CLICK INSTALL"**
+### 2. Run Analyze
+Click **"Analyze"**.
 
-### 3. Open ComfyUI
-Launch ComfyUI
+The app will automatically detect the Python path and UniRig status when possible.
 
-### 4. Run your workflow
-Load a UniRig workflow and run it
+### 3. Install UniRig
+Click **"Install UniRig"**.
+
+### 4. Run ONE-CLICK INSTALL
+Click **"ONE-CLICK INSTALL"**.
+
+### 5. Open ComfyUI
+Launch ComfyUI as administrator.
+
+### 6. Run your workflow
+Load a UniRig workflow and run it.
 
 👉 Done.
 
