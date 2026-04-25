@@ -1,5 +1,5 @@
 ![Status](https://img.shields.io/badge/status-stable-green)
-![Version](https://img.shields.io/badge/version-v7-blue)
+![Version](https://img.shields.io/badge/version-v2-blue)
 ![ComfyUI](https://img.shields.io/badge/ComfyUI-supported-orange)
 ![Install](https://img.shields.io/badge/install-one--click-success)
 
