@@ -1,78 +1,88 @@
-# UniRig Installer
+![Status](https://img.shields.io/badge/status-stable-green)
+![Version](https://img.shields.io/badge/version-v7-blue)
+![ComfyUI](https://img.shields.io/badge/ComfyUI-supported-orange)
+![Install](https://img.shields.io/badge/install-one--click-success)
 
-一键在 ComfyUI 中安装 UniRig。
+# 🚀 UNIRIG 一键安装器
 
----
-
-## 🌍 语言
-
-[English](README.md) | [Français](README_FR.md) | 中文
-
----
-
-## ⚠️ 重要
-
-安装后 **不要重启 ComfyUI**  
-必须 **完全关闭 ComfyUI**
+在 ComfyUI 中一键安装、配置并启用 **UNIRIG**
 
 ---
 
-## 🚀 安装步骤
+## ⚡ 一键体验
 
-### 第一步 — 安装 UniRig
+无需手动配置，无需调试。
 
-- 打开 ComfyUI  
-- 安装 UniRig  
+👉 只需：
 
-👉 然后关闭 ComfyUI
-
----
-
-## ⚠️ 如果之前安装过 UniRig
-
-（如果是第一次安装可跳过）
-
-步骤：
-
-1. 打开 ComfyUI  
-2. 点击 ENV  
-3. 删除 UniRig 环境  
-4. 关闭 ComfyUI  
+**安装 UNIRIG → ONE-CLICK INSTALL → 打开 COMFYUI → 运行工作流**
 
 ---
 
-### 第二步 — 运行 Installer
+## 🧠 功能说明
 
-1. Detect  
-2. Update comfy-env  
-3. Install UniRig env  
-4. Generate Script  
-5. Export Script  
+该工具会自动：
 
----
+- 检测 ComfyUI 环境
+- 安装 UniRig
+- 创建独立运行环境（comfy-env）
+- 安装所有必要组件
+- 应用所有必要修复
 
-### 第三步 — 运行脚本
-
-```powershell
-.\SCRIPT_UNIRIG.ps1
-```
+👉 **结果：UniRig 可立即在 ComfyUI 中使用**
 
 ---
 
-### 第四步 — 启动 ComfyUI
+## 🚀 使用方法 -（推荐使用 Microsoft Edge、Firefox 或 Opera）
 
-运行 workflow
+### 1. 安装 UniRig
+点击 **"Install UniRig"**
+
+### 2. 点击 ONE-CLICK INSTALL
+执行自动安装
+
+### 3. 打开 ComfyUI
+启动 ComfyUI
+
+### 4. 运行工作流
+加载 UniRig 工作流并运行
+
+👉 完成
 
 ---
 
-## 💡 提示
+## 🟢 预期结果
 
-自动配置环境  
-部分 GPU 可能不同  
+- UniRig 正常运行
+- 无缺失模块
+- 无环境问题
+- 工作流可正常执行
+
+---
+
+## 🔍 兼容性
+
+- ComfyUI（桌面 / 本地 / 便携）
+- Python 3.12
+- 支持 CUDA GPU
+
+已在多种 ComfyUI 环境中测试：
+- Desktop（venv）
+- Windows Portable（嵌入式）
+- Easy Install（嵌入式）
+- 本地安装
+
+---
+
+## ❤️ 致谢
+
+- ComfyUI 社区
+- UniRig 开发者
+- 开源生态
 
 ---
 
 ## 👤 作者
 
 emilune  
-https://github.com/emilune  
+https://github.com/emilune

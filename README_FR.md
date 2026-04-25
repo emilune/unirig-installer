@@ -1,104 +1,88 @@
-# UniRig Installer
+![Status](https://img.shields.io/badge/status-stable-green)
+![Version](https://img.shields.io/badge/version-v7-blue)
+![ComfyUI](https://img.shields.io/badge/ComfyUI-supported-orange)
+![Install](https://img.shields.io/badge/install-one--click-success)
 
-Installe automatiquement UniRig dans ComfyUI — riggez vos personnages 3D en quelques secondes.
+# 🚀 UNIRIG One-Click Installer
 
----
-
-## 🌍 Langues
-
-[English](README.md) | Français | [中文](README_CN.md)
-
----
-
-## ⚠️ Important
-
-Après installation de UniRig, **NE redémarrez PAS ComfyUI**.
-
-Vous devez **FERMER complètement ComfyUI** avant de lancer UniRig Installer.
-
-❌ Ne pas redémarrer  
-✅ Fermer complètement  
+Installe, configure et active **UNIRIG dans ComfyUI en un clic.**
 
 ---
 
-## 🚀 Guide d'installation
+## ⚡ Expérience One-Click
 
-### Étape 1 — Installer UniRig dans ComfyUI
+Aucune configuration manuelle. Aucun réglage. Aucun dépannage.
 
-- Ouvrez ComfyUI  
-- Installez **UniRig** via le Manager  
+👉 Il suffit de :
 
-👉 Puis **fermez complètement ComfyUI**
-
----
-
-## ⚠️ Si UniRig a déjà été installé
-
-Un ancien environnement peut exister et poser problème.
-
-Procédure recommandée :
-
-1. Ouvrir ComfyUI  
-2. Cliquer sur **ENV**  
-3. Supprimer les environnements UniRig  
-4. Fermer complètement ComfyUI  
+**INSTALLER UNIRIG → ONE-CLICK INSTALL → OUVRIR COMFYUI → LANCER UN WORKFLOW**
 
 ---
 
-### Étape 2 — Lancer UniRig Installer
+## 🧠 Ce que fait l’application
 
-1. Detect  
-2. Update comfy-env  
-3. Install UniRig env  
-4. Generate Script  
-5. Export Script  
+Cet outil :
 
----
+- Détecte automatiquement votre environnement ComfyUI
+- Installe UniRig
+- Crée un environnement isolé (comfy-env)
+- Installe tous les composants nécessaires
+- Applique tous les correctifs requis
 
-### Étape 3 — Exécuter le script
-
-```powershell
-.\SCRIPT_UNIRIG.ps1
-```
+👉 **Résultat : UniRig fonctionne immédiatement dans ComfyUI**
 
 ---
 
-### Étape 4 — Relancer ComfyUI
+## 🚀 Utilisation - (Microsoft Edge, Firefox ou Opera recommendée)
 
-- Lancer ComfyUI  
-- Charger le workflow  
-- Exécuter  
+### 1. Installer UniRig
+Cliquez sur **"Installer UniRig"**
 
----
+### 2. Lancer ONE-CLICK INSTALL
+Cliquez sur **"ONE-CLICK INSTALL"**
 
-## 💡 Notes
+### 3. Ouvrir ComfyUI
+Lancez ComfyUI
 
-- L’environnement est configuré automatiquement  
-- Certains GPU récents peuvent varier  
+### 4. Lancer un workflow
+Chargez un workflow UniRig et exécutez-le
 
----
-
-## ❤️ Contribution
-
-Suggestions bienvenues
+👉 Terminé.
 
 ---
 
-## 🚀 Téléchargement
+## 🟢 Résultat attendu
 
-Voir section Releases
+- UniRig entièrement fonctionnel
+- Aucun module manquant
+- Aucun problème d’environnement
+- Workflows exécutés sans erreur
+
+---
+
+## 🔍 Compatibilité
+
+- ComfyUI (Desktop / Local / Portable)
+- Python 3.12
+- GPU (CUDA)
+
+Testée sur les configurations ComfyUI suivantes :
+- Desktop (venv)
+- Windows Portable (embedded)
+- Easy Install (embedded)
+- Installation locale
+
+---
+
+## ❤️ Crédits
+
+- Communauté ComfyUI
+- Développeurs UniRig
+- Écosystème open-source
 
 ---
 
 ## 👤 Auteur
 
 emilune  
-https://github.com/emilune  
-
----
-
-## 🙏 Remerciements
-
-- ComfyUI  
-- UniRig  
-- Open-source  
+https://github.com/emilune
