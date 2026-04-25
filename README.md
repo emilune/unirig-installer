@@ -30,10 +30,6 @@ Install, configure and activate **UniRig in ComfyUI — in one click.**
 
 No manual setup. No configuration. No troubleshooting.
 
-👉 Just follow:
-
-**INSTALL UNIRIG → ONE-CLICK INSTALL → OPEN COMFYUI → RUN YOUR WORKFLOW**
-
 ---
 
 ## 🧠 What it does
