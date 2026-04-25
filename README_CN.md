@@ -33,21 +33,30 @@
 
 ---
 
-## 🚀 使用方法 -（推荐使用 Microsoft Edge、Firefox 或 Opera）
+## 🚀 使用方法  
+*（推荐使用 Microsoft Edge、Firefox 或 Opera）*
 
-### 1. 安装 UniRig
-点击 **"Install UniRig"**
+### 1. 选择 ComfyUI 文件夹
+点击 ComfyUI 路径字段旁边的 **"Browse"**，并选择你的 ComfyUI 文件夹。
 
-### 2. 点击 ONE-CLICK INSTALL
-执行自动安装
+### 2. 运行 Analyze
+点击 **"Analyze"**。
 
-### 3. 打开 ComfyUI
-启动 ComfyUI
+应用会在可能的情况下自动检测 Python 路径和 UniRig 状态。
 
-### 4. 运行工作流
-加载 UniRig 工作流并运行
+### 3. 安装 UniRig
+点击 **"Install UniRig"**。
 
-👉 完成
+### 4. 运行 ONE-CLICK INSTALL
+点击 **"ONE-CLICK INSTALL"**。
+
+### 5. 打开 ComfyUI
+以管理员身份启动 ComfyUI。
+
+### 6. 运行工作流
+加载 UniRig 工作流并运行。
+
+👉 完成。
 
 ---
 
