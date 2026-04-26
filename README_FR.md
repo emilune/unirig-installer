@@ -9,6 +9,23 @@ Installe, configure et active **UNIRIG dans ComfyUI en un clic.**
 
 ---
 
+## ⬇ Download
+
+👉 **[Download Latest Version (.exe)](https://github.com/emilune/unirig-installer/releases)**
+
+---
+
+🌍 **Languages**  
+[🇬🇧 English](README.md) | [🇫🇷 Français](README_FR.md) | [🇨🇳 中文](README_CN.md)
+
+---
+
+## 🎬 Result Preview
+
+![Result](demo.png)
+
+---
+
 ## ⚡ Expérience One-Click
 
 Aucune configuration manuelle. Aucun réglage. Aucun dépannage.
@@ -26,6 +43,12 @@ Cet outil :
 - Applique tous les correctifs requis
 
 👉 **Résultat : UniRig fonctionne immédiatement dans ComfyUI**
+
+---
+
+## 🖥️ Preview Interface 
+
+![Interface](assets/preview.png)
 
 ---
 
