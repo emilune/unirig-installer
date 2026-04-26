@@ -105,7 +105,7 @@ Testée sur les configurations ComfyUI suivantes :
 ## ❤️ Crédits
 
 - Communauté ComfyUI
-- Développeurs UniRig
+- Développeurs UniRig (Andrea Pozzetti)
 - Écosystème open-source
 
 ---
