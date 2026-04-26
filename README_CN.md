@@ -9,6 +9,23 @@
 
 ---
 
+## ⬇ Download
+
+👉 **[Download Latest Version (.exe)](https://github.com/emilune/unirig-installer/releases)**
+
+---
+
+🌍 **Languages**  
+[🇬🇧 English](README.md) | [🇫🇷 Français](README_FR.md) | [🇨🇳 中文](README_CN.md)
+
+---
+
+## 🎬 Result Preview
+
+![Result](demo.png)
+
+---
+
 ## ⚡ 一键体验
 
 无需手动配置，无需调试。
@@ -26,6 +43,12 @@
 - 应用所有必要修复
 
 👉 **结果：UniRig 可立即在 ComfyUI 中使用**
+
+---
+
+## 🖥️ Interface Preview
+
+![Interface](assets/preview.png)
 
 ---
 
