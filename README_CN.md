@@ -105,7 +105,7 @@
 ## ❤️ 致谢
 
 - ComfyUI 社区
-- UniRig 开发者
+- UniRig 开发者 (Andrea Pozzetti)
 - 开源生态
 
 ---
