@@ -110,7 +110,7 @@ Tested across multiple ComfyUI setups:
 ## ❤️ Credits
 
 - ComfyUI community  
-- UniRig by PozzettiAndrea  
+- UniRig by Andrea Pozzetti  
 - Open-source ecosystem  
 
 ---
