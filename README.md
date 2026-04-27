@@ -48,7 +48,7 @@ This tool automatically:
 
 ## 🎬 Quick Preview
 
-![UniRig OneClick Installer Demo](demo.gif)
+![UniRig OneClick Installer Demo](https://raw.githubusercontent.com/emilune/unirig-installer/main/demo.gif)
 
 ---
 
