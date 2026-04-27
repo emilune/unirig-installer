@@ -5,6 +5,25 @@ import os
 import queue
 import shutil
 import subprocess
+
+# Hide child console windows when packaged with PyInstaller --windowed on Windows.
+# This keeps the installer UI clean while pip/git/comfy-env commands run.
+if os.name == "nt":
+    _CREATE_NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000)
+    _subprocess_run_original = subprocess.run
+    _subprocess_popen_original = subprocess.Popen
+
+    def _subprocess_run_hidden(*args, **kwargs):
+        kwargs.setdefault("creationflags", _CREATE_NO_WINDOW)
+        return _subprocess_run_original(*args, **kwargs)
+
+    def _subprocess_popen_hidden(*args, **kwargs):
+        kwargs.setdefault("creationflags", _CREATE_NO_WINDOW)
+        return _subprocess_popen_original(*args, **kwargs)
+
+    subprocess.run = _subprocess_run_hidden
+    subprocess.Popen = _subprocess_popen_hidden
+
 import threading
 import time
 import socket
@@ -65,6 +84,7 @@ LANGS = {
         "analyze": "Analyser",
         "install_unirig_btn": "Installer UniRig",
         "install_unirig_running": "Téléchargement et installation des nodes UniRig...",
+        "button_working": "Installation...",
         "install_unirig_done": "Nodes UniRig téléchargés et installés dans custom_nodes",
         "install_unirig_exists": "Les nodes UniRig sont déjà présents dans ce ComfyUI",
         "install_unirig_failed": "Échec du téléchargement / installation des nodes UniRig",
@@ -77,7 +97,7 @@ LANGS = {
         Utilisation recommandée :
         1. Installer UniRig dans ComfyUI
         2. Lancer UniRig OneClick Installer
-        3. Cliquer sur ONE-CLICK INSTALL
+        3. Cliquer sur OneClick Install
         4. Exécuter un workflow UniRig dans ComfyUI
 
         Important :
@@ -123,7 +143,7 @@ LANGS = {
         "browse_output_tool": "Dossier Output",
         "browse_output_desc": "Copier un dossier export",
         "export": "Exporter",
-        "oneclick": "ONE-CLICK INSTALL",
+        "oneclick": "OneClick Install",
         "progress_idle": "En attente",
         "progress_running": "Installation en cours...",
         "progress_update": "Mise à jour comfy-env...",
@@ -184,12 +204,13 @@ LANGS = {
         "analyze": "Analyze",
         "install_unirig_btn": "Install UniRig",
         "install_unirig_running": "Downloading and installing UniRig nodes...",
+        "button_working": "Installing...",
         "install_unirig_done": "UniRig nodes downloaded and installed into custom_nodes",
         "install_unirig_exists": "UniRig nodes are already present in this ComfyUI",
         "install_unirig_failed": "Failed to download / install UniRig nodes",
         "helper": "Select the ComfyUI folder (the one containing main.py)",
         "about_title": "About UniRig OneClick Installer",
-        "about_body": "This application validates, repairs and finalizes UniRig installation inside ComfyUI.\n\nVersion 2.0\n\nRecommended use:\n1. Install UniRig in ComfyUI\n2. Launch UniRig OneClick Installer\n3. Click ONE-CLICK INSTALL\n4. Run a UniRig workflow in ComfyUI\n\nWhat the application does:\n• detects your ComfyUI and Python setup\n• blocks incompatible cases before installation\n• updates comfy-env if needed\n• cleans old UniRig environments\n• runs comfy-env install automatically\n• applies required fixes\n\nCurrently validated compatibility:\n• ComfyUI embedded mode\n• ComfyUI venv mode\n• Python 3.12\n\nNot yet validated:\n• ComfyUI local / system Python mode\n\nKnown limitations:\n• Python 3.13 is not currently supported\n\nExpected result:\nAfter the one-click flow, a UniRig workflow should run without environment-related errors.",
+        "about_body": "This application validates, repairs and finalizes UniRig installation inside ComfyUI.\n\nVersion 2.0\n\nRecommended use:\n1. Install UniRig in ComfyUI\n2. Launch UniRig OneClick Installer\n3. Click OneClick Install\n4. Run a UniRig workflow in ComfyUI\n\nWhat the application does:\n• detects your ComfyUI and Python setup\n• blocks incompatible cases before installation\n• updates comfy-env if needed\n• cleans old UniRig environments\n• runs comfy-env install automatically\n• applies required fixes\n\nCurrently validated compatibility:\n• ComfyUI embedded mode\n• ComfyUI venv mode\n• Python 3.12\n\nNot yet validated:\n• ComfyUI local / system Python mode\n\nKnown limitations:\n• Python 3.13 is not currently supported\n\nExpected result:\nAfter the one-click flow, a UniRig workflow should run without environment-related errors.",
         "analysis_done": "Analysis complete",
         "next_step_prefix": "Recommended next step:",
         "next_step_clean": "Clean environment",
@@ -220,7 +241,7 @@ LANGS = {
         "browse_output_tool": "Output Folder",
         "browse_output_desc": "Copy export folder",
         "export": "Export",
-        "oneclick": "ONE-CLICK INSTALL",
+        "oneclick": "OneClick Install",
         "progress_idle": "Waiting",
         "progress_running": "Installation in progress...",
         "progress_update": "Updating comfy-env...",
@@ -280,12 +301,13 @@ LANGS = {
         "analyze": "分析",
         "install_unirig_btn": "安装 UniRig",
         "install_unirig_running": "正在下载并安装 UniRig 节点...",
+        "button_working": "安装中...",
         "install_unirig_done": "UniRig 节点已下载并安装到 custom_nodes",
         "install_unirig_exists": "此 ComfyUI 中已存在 UniRig 节点",
         "install_unirig_failed": "下载 / 安装 UniRig 节点失败",
         "helper": "请选择 ComfyUI 文件夹（包含 main.py）",
         "about_title": "关于 UniRig OneClick Installer",
-        "about_body": "此应用用于验证、修复并完成 UniRig 在 ComfyUI 中的安装。\n\n建议使用顺序：\n1. 在 ComfyUI 中安装 UniRig\n2. 完全关闭 ComfyUI\n3. 启动本应用\n4. 点击 ONE-CLICK INSTALL\n5. 重新打开 ComfyUI 并运行 UniRig workflow\n\n应用会自动：\n• 检测 ComfyUI 与 Python 配置\n• 在安装前阻止不兼容情况\n• 在需要时更新 comfy-env\n• 清理旧的 UniRig 环境\n• 自动执行 comfy-env install\n• 应用必要修复\n\n当前已验证兼容：\n• embedded 模式\n• venv 模式\n• Python 3.12\n\n尚未验证：\n• local / system Python 模式\n\n已知限制：\n• 暂不支持 Python 3.13\n\n预期结果：\n完成 one-click 后，可重新打开 ComfyUI，并运行 UniRig workflow，且不再出现环境相关错误。",
+        "about_body": "此应用用于验证、修复并完成 UniRig 在 ComfyUI 中的安装。\n\n建议使用顺序：\n1. 在 ComfyUI 中安装 UniRig\n2. 完全关闭 ComfyUI\n3. 启动本应用\n4. 点击 OneClick Install\n5. 重新打开 ComfyUI 并运行 UniRig workflow\n\n应用会自动：\n• 检测 ComfyUI 与 Python 配置\n• 在安装前阻止不兼容情况\n• 在需要时更新 comfy-env\n• 清理旧的 UniRig 环境\n• 自动执行 comfy-env install\n• 应用必要修复\n\n当前已验证兼容：\n• embedded 模式\n• venv 模式\n• Python 3.12\n\n尚未验证：\n• local / system Python 模式\n\n已知限制：\n• 暂不支持 Python 3.13\n\n预期结果：\n完成 one-click 后，可重新打开 ComfyUI，并运行 UniRig workflow，且不再出现环境相关错误。",
         "analysis_done": "分析完成",
         "next_step_prefix": "建议下一步：",
         "next_step_clean": "清理环境",
@@ -1123,7 +1145,7 @@ def install_unirig_env(python_path: str, unirig_path: str, env_mode: str, log):
                 if network_failure and network_attempt >= max_network_attempts:
                     log(f"Attempt failed: {' '.join(cmd)}")
                     log("❌ Échec réseau pendant le téléchargement des dépendances PyTorch / UniRig.")
-                    log("❌ Vérifiez votre connexion internet, puis relancez ONE-CLICK INSTALL.")
+                    log("❌ Vérifiez votre connexion internet, puis relancez OneClick Install.")
                 if flash_attn_wheel_missing and env_python:
                     log(f"Attempt failed: {' '.join(cmd)}")
                     log("⚠ comfy-env stopped because flash-attn wheel is unavailable for this target.")
@@ -2168,6 +2190,13 @@ class App(ctk.CTk):
             self.iconphoto(True, self.logo_tk_image)
 
             logo_pil = Image.open(io.BytesIO(base64.b64decode(APP_ICON_PNG_B64))).convert("RGBA")
+            # Best-effort native Windows icon for taskbar / Alt-Tab when launched from source or EXE.
+            try:
+                temp_icon_path = Path(os.environ.get("TEMP", ".")) / "unirig_oneclick_icon.ico"
+                logo_pil.save(temp_icon_path, format="ICO", sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (256, 256)])
+                self.iconbitmap(str(temp_icon_path))
+            except Exception:
+                pass
             self.logo_image = ctk.CTkImage(
                 light_image=logo_pil,
                 dark_image=logo_pil,
@@ -2322,7 +2351,7 @@ class App(ctk.CTk):
         self.next_step_label.pack_forget()
         action_center = ctk.CTkFrame(action_wrap, fg_color="transparent")
         action_center.place(relx=0.5, rely=0.60, anchor="center")
-        self.oneclick_btn = ctk.CTkButton(action_center, text="", width=250, height=48, corner_radius=15, fg_color=ONECLICK, hover_color=ONECLICK_HOVER, text_color="#2B2025", border_width=1, border_color="#E4BFCB", font=ctk.CTkFont(size=15, weight="bold"), command=self.run_oneclick)
+        self.oneclick_btn = ctk.CTkButton(action_center, text="", width=250, height=48, corner_radius=15, fg_color=ONECLICK, hover_color=ONECLICK_HOVER, text_color="#2B2025", border_width=1, border_color="#E4BFCB", font=ctk.CTkFont(size=17, weight="bold"), command=self.run_oneclick)
         self.oneclick_btn.pack(anchor="center", pady=(0, 7))
         self.progress_holder = ctk.CTkFrame(action_center, fg_color="transparent", height=36)
         self.progress_holder.pack(anchor="center")
@@ -2580,7 +2609,7 @@ class App(ctk.CTk):
                 else:
                     self.log(f"[fallback] {name}: FAILED")
                     if name == "flash_attn":
-                        self.log("[fallback] flash_attn could not be downloaded after multiple attempts. Check your internet connection, then relaunch ONE-CLICK INSTALL.")
+                        self.log("[fallback] flash_attn could not be downloaded after multiple attempts. Check your internet connection, then relaunch OneClick Install.")
                     if last_stdout:
                         for line in last_stdout.splitlines()[-10:]:
                             self.log(line)
@@ -2861,7 +2890,7 @@ class App(ctk.CTk):
             "Configuration Desktop Local détectée.\n\n"
             "Étapes recommandées :\n\n"
             "1. Cliquez sur Installer UniRig\n"
-            "2. Cliquez sur ONE-CLICK INSTALL\n"
+            "2. Cliquez sur OneClick Install\n"
             "3. Ouvrez ComfyUI\n"
             "4. Lancez un workflow\n\n"
             "UniRig est prêt à être utilisé."
@@ -2875,7 +2904,7 @@ class App(ctk.CTk):
         self.local_desktop_guidance_shown = True
         msg = self._local_desktop_manager_guidance_message()
         self.log("Mode Desktop Local détecté.")
-        self.log("Procédure : Installer UniRig → ONE-CLICK INSTALL → ouvrir ComfyUI → lancer un workflow.")
+        self.log("Procédure : Installer UniRig → OneClick Install → ouvrir ComfyUI → lancer un workflow.")
         messagebox.showinfo("Desktop Local - installation UniRig", msg, parent=self)
 
     def _apply_install_unirig_button_policy(self):
@@ -2979,7 +3008,7 @@ class App(ctk.CTk):
 
         self.log("⚠ comfy_3d_viewers missing in Portable/embedded Python")
         if not install:
-            self.log("ℹ It will be installed after Install UniRig or during ONE-CLICK INSTALL")
+            self.log("ℹ It will be installed after Install UniRig or during OneClick Install")
             return False
 
         self.log("Installing comfy-3d-viewers into Portable/embedded Python...")
@@ -3021,9 +3050,15 @@ class App(ctk.CTk):
     def install_unirig_node(self):
         if self.install_running:
             return
-        if self.analysis_has_run and self._is_local_desktop_mode():
-            self._show_local_desktop_manager_guidance(force=True)
+        # V10.2: do not show the old Desktop Local guidance popup here.
+        # The README and final admin popup now provide the user-facing flow.
         self._warn_if_comfyui_running()
+        try:
+            self.install_unirig_btn.configure(text=self.tr("button_working"), state="disabled")
+            self.detect_btn.configure(state="disabled")
+            self.update_idletasks()
+        except Exception:
+            pass
         threading.Thread(target=self._install_unirig_node_worker, daemon=True).start()
 
     def _install_unirig_node_worker(self):
@@ -3034,7 +3069,7 @@ class App(ctk.CTk):
         unirig_repo = ("ComfyUI-UniRig", "https://github.com/PozzettiAndrea/ComfyUI-UniRig.git", "https://codeload.github.com/PozzettiAndrea/ComfyUI-UniRig/zip/refs/heads/main")
         # V8 multi-config policy: this button installs UniRig ONLY.
         # Env-Manager / CameraPack / heavy dependencies are not installed here.
-        # The ONE-CLICK INSTALL step builds the isolated UniRig environment and
+        # The OneClick Install step builds the isolated UniRig environment and
         # installs everything required for runtime.
         repos = [unirig_repo]
         try:
@@ -3056,7 +3091,7 @@ class App(ctk.CTk):
             custom_nodes = Path(detected.get("custom_nodes_path") or (comfy_path / "custom_nodes"))
             custom_nodes.mkdir(parents=True, exist_ok=True)
             self.log(f"Install target custom_nodes: {custom_nodes}")
-            self.log("Installation UniRig seule : les dépendances seront gérées par ONE-CLICK INSTALL.")
+            self.log("Installation UniRig seule : les dépendances seront gérées par OneClick Install.")
 
             installed_any = False
             unirig_target = custom_nodes / "ComfyUI-UniRig"
@@ -3100,10 +3135,10 @@ class App(ctk.CTk):
             self._ensure_3d_preview_support(install=True)
 
             self.log("→ Installation UniRig terminée")
-            self.log("UniRig installé. Vous pouvez maintenant lancer ONE-CLICK INSTALL.")
+            self.log("UniRig installé. Vous pouvez maintenant lancer OneClick Install.")
             self.after(0, lambda: messagebox.showinfo(
                 APP_NAME,
-                "UniRig a été installé.\n\nÉtape suivante : cliquez sur ONE-CLICK INSTALL.",
+                "UniRig has been installed.\nNext step: click on OneClick Install.",
                 parent=self
             ))
             self.current_action_key = "install_unirig_done"
@@ -3119,7 +3154,7 @@ class App(ctk.CTk):
                 parent=self
             ))
         finally:
-            self.after(0, lambda: self.install_unirig_btn.configure(state="normal"))
+            self.after(0, self._apply_install_unirig_button_policy)
             self.after(0, lambda: self.detect_btn.configure(state="normal"))
 
     def show_info(self):
@@ -3129,7 +3164,7 @@ class App(ctk.CTk):
     def _ask_oneclick_authorization(self):
         lang = self.lang.get().lower()
         if lang == "fr":
-            title = "Autorisation ONE-CLICK INSTALL"
+            title = "Autorisation OneClick Install"
             message = "D'anciens environnements ont été détectés\net peuvent gêner la bonne installation de UniRig dans ComfyUI.\nVoulez-vous les écraser (recommandé) ?"
             yes_text = "Oui"
             no_text = "Non"
@@ -3139,7 +3174,7 @@ class App(ctk.CTk):
             yes_text = "是"
             no_text = "否"
         else:
-            title = "ONE-CLICK INSTALL authorization"
+            title = "OneClick Install authorization"
             message = "Existing UniRig environments were detected\nand may interfere with a proper UniRig installation in ComfyUI.\nDo you want to overwrite them (recommended)?"
             yes_text = "Yes"
             no_text = "No"
@@ -3166,6 +3201,13 @@ class App(ctk.CTk):
             self.log(self.tr("analysis_required"))
             return
 
+        try:
+            self.oneclick_btn.configure(text=self.tr("button_working"), state="disabled")
+            self.install_unirig_btn.configure(state="disabled")
+            self.update_idletasks()
+        except Exception:
+            pass
+
         self._warn_if_comfyui_running()
 
         current_node_envs = detect_old_unirig_env(self.cfg.unirig_path)
@@ -3178,6 +3220,11 @@ class App(ctk.CTk):
             if not authorized:
                 self.current_action_key = "not_started"
                 self.current_action.set(self.tr("not_started"))
+                try:
+                    self.oneclick_btn.configure(text=self.tr("oneclick"), state="normal")
+                    self._apply_install_unirig_button_policy()
+                except Exception:
+                    pass
                 return
         else:
             self.log("One-click authorization popup skipped: no previous UniRig environment detected")
@@ -3342,8 +3389,8 @@ class App(ctk.CTk):
             self.after(0, lambda: self.set_global_status("error", self.tr("install_incomplete"), "install_incomplete"))
             self.after(0, lambda: self.set_progress_state("progress_error", False))
         finally:
-            self.after(0, lambda: self.oneclick_btn.configure(state="normal"))
-            self.after(0, lambda: self.install_unirig_btn.configure(state="normal"))
+            self.after(0, lambda: self.oneclick_btn.configure(text=self.tr("oneclick"), state="normal"))
+            self.after(0, self._apply_install_unirig_button_policy)
             self.install_running = False
             self._save_config()
 
