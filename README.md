@@ -48,7 +48,7 @@ This tool automatically:
 
 ## 🎬 Quick Preview
 
-![UniRig Demo](demo.gif)
+![UniRig OneClick Installer Demo](demo.gif)
 
 ---
 
