@@ -46,9 +46,9 @@ This tool automatically:
 
 ---
 
-## 🖥️ Interface Preview
+## 🎬 Quick Preview
 
-![Interface](assets/preview.png)
+![UniRig Demo](demo.gif)
 
 ---
 
